@@ -22,3 +22,22 @@ type DataSetList struct {
 		StatusMsg string `json:"statusMsg,omitempty"`
 	} `json:"data"`
 }
+
+
+type TrainDataSetResponse struct {
+	CreatedAt        string      `json:"createdAt"`
+	DatasetID        int         `json:"datasetId"`
+	DatasetVersionID int         `json:"datasetVersionId"`
+	Epochs           int         `json:"epochs"`
+	LearningRate     float64     `json:"learningRate"`
+	ModelID          string      `json:"modelId"`
+	ModelType        string      `json:"modelType"`
+	Name             string      `json:"name"`
+	Object           string      `json:"object"`
+	Progress         int         `json:"progress"`
+	QueuePosition    int         `json:"queuePosition"`
+	Status           string      `json:"status"`
+	TrainParams      interface{} `json:"trainParams"`
+	TrainStats       interface{} `json:"trainStats"`
+	UpdatedAt        string      `json:"updatedAt"`
+}
