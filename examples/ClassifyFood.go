@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/rajdeepd/metamind-go-apis/vision"
+	"github.com/rajdeepd/einstein-go-apis/vision"
 	"os"
 )
 
