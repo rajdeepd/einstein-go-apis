@@ -13,7 +13,7 @@ import (
 )
 
 
-func Classify(modelId string, sampleLocation string, accessToken string){
+func Classify(modelId string, sampleLocation string, accessToken string) ([]byte, error){
 	client := &http.Client{}
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
@@ -35,11 +35,12 @@ func Classify(modelId string, sampleLocation string, accessToken string){
 		os.Exit(1)
 	}
 	defer resp.Body.Close()
-	htmlData, err := ioutil.ReadAll(resp.Body)
-	fmt.Println(os.Stdout, string(htmlData))
+	respBody, errResp := ioutil.ReadAll(resp.Body)
+	return respBody, errResp
+
 }
 
-func ClassifyLocal(modelId string, samplePath string, accessToken string){
+func ClassifyLocal(modelId string, samplePath string, accessToken string) ([]byte, error) {
 	base64 := getBase64String(samplePath)
 	client := &http.Client{}
 	body := &bytes.Buffer{}
@@ -62,8 +63,9 @@ func ClassifyLocal(modelId string, samplePath string, accessToken string){
 		os.Exit(1)
 	}
 	defer resp.Body.Close()
-	htmlData, err := ioutil.ReadAll(resp.Body)
-	fmt.Println(os.Stdout, string(htmlData))
+
+	respBody, errResp := ioutil.ReadAll(resp.Body)
+	return respBody, errResp
 }
 
 func getBase64String(samplePath string) string {

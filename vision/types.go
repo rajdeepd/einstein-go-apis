@@ -41,3 +41,11 @@ type TrainDataSetResponse struct {
 	TrainStats       interface{} `json:"trainStats"`
 	UpdatedAt        string      `json:"updatedAt"`
 }
+
+type PredictResponse struct {
+	Probabilities []struct {
+		Label string `json:"label"`
+		Probability float64 `json:"probability"`
+	} `json:"probabilities"`
+	Object string `json:"object"`
+}
