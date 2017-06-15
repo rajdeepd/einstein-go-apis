@@ -23,7 +23,7 @@ func CreateDataSet(path string, accessToken string) ([]byte, error) {
 	_ = writer.WriteField("path", path)
 	_ = writer.Close()
 
-	req, err := http.NewRequest("POST", "https://api.metamind.io/v1/vision/datasets/upload/sync", body)
+	req, err := http.NewRequest("POST", DATASET_UPLOAD_SYNC_URL_V1, body)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 
 	// ...
@@ -45,7 +45,7 @@ func CreateDataSet(path string, accessToken string) ([]byte, error) {
 func ListDataSets(accessToken string) ([]byte, error) {
 	client := &http.Client{}
 
-	req, err := http.NewRequest("GET", "https://api.metamind.io/v1/vision/datasets", nil)
+	req, err := http.NewRequest("GET", DATASET_URL, nil)
 	req.Header.Set("Content-Type", "multipart/form-data")
 
 	// ...
@@ -68,7 +68,7 @@ func ListDataSets(accessToken string) ([]byte, error) {
 func DeleteDataSet(accessToken, id string) ([]byte, error) {
 	//client := &http.Client{}
 
-	req, err := http.NewRequest("DELETE", "https://api.metamind.io/v1/vision/datasets/" +  id, nil)
+	req, err := http.NewRequest("DELETE", DATASET_URL + "/" +  id, nil)
 	//req.Header.Set("Content-Type", "multipart/form-data")
 
 	// ...
@@ -100,7 +100,7 @@ func TrainDataSet(accessToken,name, datasetId string) ([]byte, error) {
 	_ = writer.Close()
 
 	req, err := http.NewRequest("POST",
-		"https://api.metamind.io/v1/vision/train", body)
+		TRAIN_URL, body)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 
 	// ...

@@ -8,7 +8,7 @@ import (
 
 func main() {
 	accessToken := os.Getenv("ACCESSKEY")
-	id := "1000681"
+	id := "1004259"
 
 	_, err := vision.DeleteDataSet(accessToken, id)
 	if err != nil {

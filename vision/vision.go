@@ -13,6 +13,7 @@ import (
 )
 
 
+
 func Classify(modelId string, sampleLocation string, accessToken string) ([]byte, error){
 	client := &http.Client{}
 	body := &bytes.Buffer{}
@@ -22,7 +23,7 @@ func Classify(modelId string, sampleLocation string, accessToken string) ([]byte
 	_ = writer.WriteField("sampleLocation", sampleLocation)
 	_ = writer.Close()
 
-	req, err := http.NewRequest("POST", "https://api.metamind.io/v1/vision/predict", body)
+	req, err := http.NewRequest("POST", PREDICT_URL, body)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 
 	// ...
@@ -50,7 +51,7 @@ func ClassifyLocal(modelId string, samplePath string, accessToken string) ([]byt
 	_ = writer.WriteField("sampleBase64Content", base64)
 	_ = writer.Close()
 
-	req, err := http.NewRequest("POST", "https://api.metamind.io/v1/vision/predict", body)
+	req, err := http.NewRequest("POST", PREDICT_URL, body)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 
 	// ...
