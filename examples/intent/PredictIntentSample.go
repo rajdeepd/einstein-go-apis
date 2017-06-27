@@ -1,18 +1,19 @@
 package main
 
 import (
-	"github.com/rajdeepd/einstein-go-apis/vision"
+	"github.com/rajdeepd/einstein-go-apis/lang"
 	"os"
 	"encoding/json"
 	"fmt"
 	"github.com/rajdeepd/einstein-go-apis/common"
+
 )
 
 func main() {
-	modelId := "FoodImageClassifier"
-	sampleLocation := "http://metamind.io/images/foodimage.jpg"
+	modelId := "GlobalIntentModel"
+	document := "password reset"
 	accessToken := os.Getenv("ACCESSKEY")
-	response, err := vision.Classify(modelId, sampleLocation, accessToken)
+	response, err := lang.PredictIntent(modelId, document, accessToken)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -24,5 +25,4 @@ func main() {
 	for _, value := range dat.Probabilities {
 		fmt.Println(value)
 	}
-
 }

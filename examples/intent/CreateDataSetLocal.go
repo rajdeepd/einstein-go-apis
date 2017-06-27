@@ -4,12 +4,13 @@ import (
 	"os"
 	"github.com/rajdeepd/einstein-go-apis/vision"
 	"fmt"
+	"github.com/rajdeepd/einstein-go-apis/lang"
 )
 
 func main() {
 	accessToken := os.Getenv("ACCESSKEY")
-	path := "/home/ubuntu/Downloads/mountainvsbeach.zip"
-	response, err := vision.CreateDataSetFromLocalFile(path, accessToken)
+	path := "home/ubuntu/work/einstein-scala-lib/data/CallRouting.csv"
+	response, err := lang.CreateIntentDataSet(path, accessToken)
 	if err != nil {
 		fmt.Println(err)
 	}

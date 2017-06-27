@@ -9,4 +9,3 @@ const DATASET_UPLOAD_SYNC_URL = DATASET_URL + "/upload/sync"
 
 const DATASET_UPLOAD_SYNC_URL_V1 = BASE_URL_V1 + "/datasets/upload/sync"
 const TRAIN_URL string = BASE_URL + "/train"
-//"https://api.metamind.io/v1/vision/datasets"

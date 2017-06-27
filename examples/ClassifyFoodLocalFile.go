@@ -5,6 +5,7 @@ import (
 	"os"
 	"encoding/json"
 	"fmt"
+	"github.com/rajdeepd/einstein-go-apis/common"
 )
 
 func main() {
@@ -16,7 +17,7 @@ func main() {
 		fmt.Println(err)
 	}
 
-	var dat *vision.PredictResponse
+	var dat *common.PredictResponse
 	if err := json.Unmarshal(response, &dat); err != nil {
 		panic(err)
 	}

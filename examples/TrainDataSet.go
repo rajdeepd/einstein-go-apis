@@ -10,7 +10,7 @@ import (
 
 func main() {
 	accessToken := os.Getenv("ACCESSKEY")
-	datasetId := "1000010"
+	datasetId := "1005133"
         name := "Beach and Mountain"
 	response, err := vision.TrainDataSet(accessToken, name, datasetId)
 	if err != nil {
