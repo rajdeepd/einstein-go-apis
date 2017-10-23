@@ -1,22 +1,24 @@
 package main
 
 import (
-	"github.com/rajdeepd/einstein-go-apis/vision"
+	"github.com/rajdeepd/einstein-go-apis/lang"
 	"os"
-	"fmt"
 	"encoding/json"
+	"fmt"
+	"github.com/rajdeepd/einstein-go-apis/common"
+
 )
 
 func main() {
-	modelId := "JNFE34BG6BK6CBYUYOTBL5B2DI"
-	samplePath := "/home/ubuntu/Downloads/villa1-test.jpeg"
+	modelId := "BMRG2U4ST6UP3OZAO2J7N5MF5M"
+	document := "this movie is great"
 	accessToken := os.Getenv("ACCESSKEY")
-	response, err := vision.ClassifyLocal(modelId, samplePath, accessToken)
+	response, err := lang.PredictSentiment(modelId, document, accessToken)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	var dat *vision.PredictResponse
+	var dat *common.PredictResponse
 	if err := json.Unmarshal(response, &dat); err != nil {
 		panic(err)
 	}

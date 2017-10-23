@@ -12,10 +12,6 @@ import (
 )
 
 
-// curl -X POST -H "Authorization: Bearer <TOKEN>" -H "Cache-Control: no-cache" -H
-// "Content-Type: multipart/form-data" -F
-// "path=https://dropboxusercontent.com/u/99999999/mountainvsbeach.zip"
-// https://api.einstein.ai/v1/vision/datasets/upload/sync
 func CreateDataSet(path string, accessToken string) ([]byte, error) {
 	client := &http.Client{}
 	body := &bytes.Buffer{}

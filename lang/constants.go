@@ -10,6 +10,10 @@ package lang
 
 const BASE string = "https://api.einstein.ai/v2/language"
 const BASE_INTENT string = BASE + "/intent"
+const DATASETS string = BASE + "/datasets"
+const MODELS string = BASE + "/models"
 const DATASETS_INTENT string = BASE + "/datasets"
-const LANG_TRAIN string = BASE + "/train"
+const LANG_TRAIN_URL string = BASE + "/train"
 const DATASETS_INTENT_UPLOAD string  = DATASETS_INTENT + "/upload"
+
+const BASE_SENTIMENT string = BASE + "/sentiment"

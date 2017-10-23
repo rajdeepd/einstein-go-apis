@@ -8,8 +8,8 @@ import (
 
 func main() {
 	accessToken := os.Getenv("ACCESSKEY")
-	path := "/home/ubuntu/work/einstein-scala-lib/data/CallRouting.csv"
-	response, err := lang.CreateIntentDataSet(path, accessToken)
+	path := "/home/ubuntu/work/src/github.com/rajdeepd/einstein-go-apis/data/movie_review_train_1000_v2.tsv"
+	response, err := lang.CreateSentimentDataSet(path, accessToken)
 	if err != nil {
 		fmt.Println(err)
 	}
