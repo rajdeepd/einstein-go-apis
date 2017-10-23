@@ -128,16 +128,10 @@ func ListDataSets(accessToken string) ([]byte, error) {
 	return respBody, errResp
 }
 
-// curl -X DELETE -H "Authorization: Bearer <TOKEN>" -H
-// "Cache-Control: no-cache" https://api.einstein.ai/v1/vision/datasets/<DATASET_ID>
 
 func DeleteDataSet(accessToken, id string) ([]byte, error) {
-	//client := &http.Client{}
 
 	req, err := http.NewRequest("DELETE", DATASET_URL + "/" +  id, nil)
-	//req.Header.Set("Content-Type", "multipart/form-data")
-
-	// ...
 	req.Header.Add("Cache-Control", "no-cache")
 	req.Header.Add("Authorization", "Bearer " +  accessToken)
 
@@ -151,9 +145,6 @@ func DeleteDataSet(accessToken, id string) ([]byte, error) {
 	return respBody, errResp
 }
 
-//curl -X POST -H "Authorization: Bearer <TOKEN>" -H "Cache-Control: no-cache" -H
-// "Content-Type: multipart/form-data" -F "name=Beach Mountain Model" -F
-// "datasetId=57" https://api.einstein.ai/v1/vision/train
 
 func TrainDataSet(accessToken,name, datasetId string) ([]byte, error) {
 	client := &http.Client{}
